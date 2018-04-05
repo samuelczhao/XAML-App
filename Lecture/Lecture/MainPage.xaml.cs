@@ -26,5 +26,10 @@ namespace Lecture
         {
             this.InitializeComponent();
         }
+
+        private void Btpptptm_Click(object sender, RoutedEventArgs e)
+        {
+            thing.Text = "Hello world";
+        }
     }
 }
