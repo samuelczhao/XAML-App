@@ -10,11 +10,27 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height= "*" />
-            <RowDefinition Height="2*" />
-            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width= "*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         
+        <!--<Rectangle Fill="Red" Grid.Row="0" Width="50" Height="50" HorizontalAlignment="Right" Margin="0, 0, 25, 0" VerticalAlignment="Bottom"/>-->
+        <Rectangle Fill="Red" Grid.Row="0" />
+        <Rectangle Fill="Blue" Grid.Row="1" />
+        <Rectangle Fill="Green" Grid.Row="2" />
+
+        <Rectangle Fill="Red" Grid.Column="0" />
+        <Rectangle Fill="Blue" Grid.Column="1" />
+        <Rectangle Fill="Green" Grid.Column="2" />
+
         <Button x:Name ="Btpptptm" Grid.Row ="1" Content="Button1" HorizontalAlignment="Left" Margin="269,269,0,0" VerticalAlignment="Top" Height="100" Width="120" Opacity="0.5" Click="Btpptptm_Click"/>
         <TextBox x:Name ="thing" Grid.Row ="0" HorizontalAlignment="Left" Margin="694,200,0,0" TextWrapping="Wrap" Text="CClick the button" VerticalAlignment="Top" Height="309" Width="543" RenderTransformOrigin="0.511,0.564"/>
+        <Button Content="Button" HorizontalAlignment="Right" Margin="200,4.5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37"/>
     </Grid>
 </Page>
