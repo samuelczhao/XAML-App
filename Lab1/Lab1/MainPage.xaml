@@ -8,6 +8,32 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3.5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="1.5*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width= "*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock x:Name ="Title" Grid.Row ="0" Margin="30,0,0,0" TextWrapping="Wrap" Text="ACME Sales Corp" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="48" />
+        <TextBlock x:Name ="First Name" Grid.Row ="2" Margin="30,0,0,0" TextWrapping="Wrap" Text="First Name:" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="28" />
+        <TextBlock x:Name ="Last Name" Grid.Row ="4" Margin="30,0,0,0" TextWrapping="Wrap" Text="Last Name:" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="28" />
+        <TextBlock x:Name ="Email" Grid.Row ="6" Margin="30,0,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="28" />
+
+        <TextBox Grid.Row ="2" Grid.Column ="1" HorizontalAlignment="Left" Margin="30,30,30,30" TextWrapping="Wrap" VerticalAlignment="Center" Height="70" Width="700" BorderThickness="6" />
+        <TextBox Grid.Row ="4" Grid.Column ="1" HorizontalAlignment="Left" Margin="30,30,30,30" TextWrapping="Wrap" VerticalAlignment="Center" Height="70" Width="700" BorderThickness="6" />
+        <TextBox Grid.Row ="6" Grid.Column ="1" HorizontalAlignment="Left" Margin="30,30,30,30" TextWrapping="Wrap" VerticalAlignment="Center" Height="70" Width="700" BorderThickness="6" />
+
+
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" FontSize="28"/>
     </Grid>
 </Page>
