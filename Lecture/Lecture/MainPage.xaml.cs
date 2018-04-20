@@ -29,7 +29,6 @@ namespace Lecture
 
         private void Btpptptm_Click(object sender, RoutedEventArgs e)
         {
-            thing.Text = "Hello world";
         }
     }
 }
