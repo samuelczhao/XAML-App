@@ -8,7 +8,38 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!-- <Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height= "Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <RelativePanel>
+            <Button Name="SearchButton" Content="Search" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,0" />
+            <TextBox Name="SearchTextBox" RelativePanel.LeftOf="SearchButton" Width="100" Margin="0,0,10,0" />
+            
+        </RelativePanel>
+
+
+
+
+
+            <!-- 
+        <Grid.RowDefinitions>
+            <RowDefinition Height= "*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <RelativePanel MinHeight="300" Grid.Row="1">
+            <Rectangle Name ="RedRectangle" Fill="Red" Grid.Row="0" Width="100" Height="100" RelativePanel.AlignRightWithPanel="True"/>
+            <Rectangle Name ="BlueRectangle" Fill="Blue" Grid.Row="0" Width="50" Height="50" RelativePanel.LeftOf="RedRectangle"/>
+            <Rectangle Name ="GreenRectangle" Fill="Green" Grid.Row="0" Width="50" Height="50" RelativePanel.AlignVerticalCenterWith="RedRectangle" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+            <Rectangle Name ="PurpleRectangle" Fill="Purple" Grid.Row="0" MinWidth="50" MinHeight="50" RelativePanel.LeftOf="RedRectangle" RelativePanel.Below="RedRectangle" RelativePanel.AlignRightWith="RedRectangle" RelativePanel.AlignLeftWith="GreenRectangle"/>
+            <Rectangle Name ="YellowRectangle" Fill="Yellow" Grid.Row="0" MinWidth="50" MinHeight="50" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignTopWith="PurpleRectangle"/>
+
+        </RelativePanel>
+
+
+        <Grid.RowDefinitions>
             <RowDefinition Height= "*" />
             <RowDefinition Height="2*" />
             <RowDefinition Height="3*" />
@@ -18,7 +49,7 @@
             <ColumnDefinition Width= "*" />
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="3*" />
-        </Grid.ColumnDefinitions> -->
+        </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
             <Rectangle Width="200" Height="200" Fill="DarkGoldenrod" />
@@ -40,7 +71,7 @@
             </StackPanel>
         </StackPanel>
 
-        <!--<StackPanel Background="White">
+        <StackPanel Background="White">
             <TextBlock>first</TextBlock>
             <TextBlock>second</TextBlock>
             <TextBlock>third</TextBlock>
