@@ -27,8 +27,9 @@ namespace Lecture
             this.InitializeComponent();
         }
 
-        private void Btpptptm_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Thing.IsPaneOpen = !Thing.IsPaneOpen;
         }
     }
 }
