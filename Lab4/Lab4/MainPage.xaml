@@ -7,7 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    </Grid>
+    <StackPanel Orientation="Vertical" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel>
+            <Button Name="HamburgerButton" Content="&#xE700;" FontSize="36"/>
+            <Button Name="BackButton" Content="&#xE728;" FontSize="36"/>
+            <TextBlock Name="PageNameTextBlock" RelativePanel.RightOf="BackButton" />
+            <Button Name="SearchButton" RelativePanel.AlignRightWithPanel="True" HorizontalAlignment="Right" VerticalAlignment="Top" Height="32" Width="32" />
+            <TextBox Name="SearchTextBox" Text="Search" RelativePanel.LeftOf="SearchButton" Width="120" />
+        </RelativePanel>
+    </StackPanel>
 </Page>
