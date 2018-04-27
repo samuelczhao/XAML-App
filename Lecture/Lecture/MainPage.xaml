@@ -8,8 +8,77 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="20,10,0,10" Orientation="Horizontal">
+            <CheckBox Name="MyCheckBox" Content="Agree?" Tapped="MyCheckBox_Tapped" />
+            <TextBlock Name="CheckBoxResultTextBlock" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="20,10,0,10">
+            <RadioButton Name="YesRadioButton" Content="Yes" GroupName="MyGroup" Checked="RadioButton_Checked" />
+            <RadioButton Name="NoRadioButton" Content="No" GroupName="MyGroup" Checked="RadioButton_Checked" />
+            <TextBlock Name="RadioButtonTextBlock" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="20,10,0,10">
+            <ComboBox SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Content="Fourth" />
+                <ComboBoxItem Content="Fifth" />
+                <ComboBoxItem Content="Sixth" IsSelected="True" />
+            </ComboBox>
+            <TextBlock Name="ComboBoxResultTextBox" />
+        </StackPanel>
+
+        <StackPanel>
+            <ListBox Name="MyListBox" SelectionMode="Multiple" SelectionChanged="Listbox_SelectionChanged">
+                <ListBoxItem Content="First" />
+                <ListBoxItem Content="Second" />
+                <ListBoxItem Content="Third" />
+            </ListBox>
+            <TextBlock Name="ListBoxResultTextBlock" />
+        </StackPanel>
+
+        <Image Source="Assets/picture.png" HorizontalAlignment="Left" Width="250" Height="50" Grid.Row="5" Stretch="None" Margin="20,10,0,10" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="20,10,0,10">
+            <ToggleButton Name="MyToggleButton" Content="Premium Option" IsThreeState="True" Click="MyToggleButton_Click" />
+            <TextBlock Name="ToggleButtonResultTextBlock" />
+        </StackPanel>
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Orientation="Horizontal">
-            <SplitView Name ="Thing" Margin="0,10,0,0" DisplayMode="Inline">
+            <StackPanel Orientation="Horizontal">
+                <Button Name="HomeButton" Content="Home" Click="HomeButton_Click" Margin="0, 0, 20, 0" />
+                <Button Name="BackButton" Content="Back" Click="BackButton_Click" Margin="0, 0, 20, 0" />
+                <Button Name="ForwardButton" Content="Forward" Click="ForwardButton_Click" Margin="0, 0, 20, 0" />
+            </StackPanel>
+            <Frame Name="InnerFrame" />
+            
+            <SplitView Name ="MySplitView" Margin="0,10,0,0" DisplayMode="Inline">
                 <SplitView.Pane>
                     <StackPanel>
                         <TextBlock Text="One" />
@@ -28,23 +97,20 @@
             <Button Content="Click me" Click="Button_Click" />
         </StackPanel>
 
-
-
-
-
-
-            <!--
+        <!--
         <Grid.RowDefinitions>
             <RowDefinition Height= "Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        
         <RelativePanel>
             <Button Name="SearchButton" Content="Search" RelativePanel.AlignRightWithPanel="True" Margin="0,0,10,0" />
             <TextBox Name="SearchTextBox" RelativePanel.LeftOf="SearchButton" Width="100" Margin="0,0,10,0" />
             <TextBlock Text="Search" RelativePanel.LeftOf="SearchTextBox" RelativePanel.AlignVerticalCenterWithPanel="True" Margin="0,0,10,0" />
             <TextBlock Text="Title" FontSize="24" FontWeight="Bold" Margin="10,0,0,0" />
         </RelativePanel>
+        
         <Border BorderThickness="3" Background="#FFE0E0E0" Grid.Row="2" BorderBrush="#FFD2D2D2">
             <RelativePanel>
                 <TextBlock Name="ItemsTextBox" Text="Items:" RelativePanel.AlignLeftWithPanel="True" Margin="10,5,0,5" />
@@ -131,6 +197,7 @@
 
         <Button x:Name ="Btpptptm" Grid.Row ="1" Content="Button1" HorizontalAlignment="Left" Margin="269,269,0,0" VerticalAlignment="Top" Height="100" Width="120" Opacity="0.5" Click="Btpptptm_Click"/>
         <TextBox x:Name ="thing" Grid.Row ="0" HorizontalAlignment="Left" Margin="694,200,0,0" TextWrapping="Wrap" Text="CClick the button" VerticalAlignment="Top" Height="309" Width="543" RenderTransformOrigin="0.511,0.564"/>
-        <Button Content="Button" HorizontalAlignment="Right" Margin="200,4.5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37"/> -->
+        <Button Content="Button" HorizontalAlignment="Right" Margin="200,4.5,0,0" Grid.Row="1" VerticalAlignment="Top" Height="37"/>
+    -->
     </Grid>
 </Page>
