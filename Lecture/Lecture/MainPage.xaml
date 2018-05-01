@@ -34,6 +34,49 @@
             <TextBlock Name="CalendarViewResultTextBlock" />
         </StackPanel>
 
+        <TextBlock Grid.Row="3" Text="Flyout" VerticalAlignment="Center" />
+        <Button Name="MyFlyoutButton" Content="Flyout" Grid.Row="3" Grid.Column="1" Margin="20,0,0,20" HorizontalAlignment="Left">
+            <Button.Flyout>
+                <Flyout x:Name="MyFlyout">
+                    <StackPanel Margin="20,20,20,20">
+                        <TextBlock Text="I flew out jsut to say i love you" Margin="0,0,0,10" />
+                        <Button Name="InnerFlyoutButton" HorizontalAlignment="Right" Content="OK" Click="InnerFlyoutButton_Click" />
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
+        <TextBlock Grid.Row="4" Text="Flyout Menu" VerticalAlignment="Center" />
+        <Button Grid.Row="4" Margin="20,0,0,20" Grid.Column="1" Content="FlyoutMenu">
+            <Button.Flyout>
+                <MenuFlyout Placement="Bottom">
+                    <MenuFlyoutItem Text="Item 1" />
+                    <MenuFlyoutItem Text="Item 2" />
+                    <MenuFlyoutSeparator />
+                    <MenuFlyoutSubItem Text="Item 3">
+                        <MenuFlyoutItem Text="Item 4" />
+                        <MenuFlyoutSubItem Text="Item 3">
+                            <MenuFlyoutItem Text="Item 5" />
+                            <MenuFlyoutItem Text="Item 6" />
+                        </MenuFlyoutSubItem>
+                    </MenuFlyoutSubItem>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+
+        <TextBlock Grid.Row="5" Text="AutosuggestBox" VerticalAlignment="Center" />
+        <AutoSuggestBox Name="MyAutoSuggestBox" Margin="20,0,0,20" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" QueryIcon="Find" PlaceholderText="Find Something" Width="200" TextChanged="MyAutoSuggestBox_TextChanged" />
+        <TextBlock Grid.Row="6" Text="Slider" VerticalAlignment="Center" />
+        <Slider Name="MySlider" Margin="20,0,0,20" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Maximum="100" Minimum="0" Width="200" />
+        <TextBlock Grid.Row="7" Text="ProgressBar" VerticalAlignment="Center" />
+        <Slider Name="MyProgressBar" Margin="20,0,0,20" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Maximum="100" Minimum="0" Width="200" />
+
+
+
+
+
+
+
         <!--
         <StackPanel Grid.Row="0" Margin="20,10,0,10" Orientation="Horizontal">
             <CheckBox Name="MyCheckBox" Content="Agree?" Tapped="MyCheckBox_Tapped" />

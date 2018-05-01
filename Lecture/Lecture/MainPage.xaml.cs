@@ -128,5 +128,18 @@ namespace Lecture
             var values = string.Join(", ", selectedDates);
             CalendarViewResultTextBox.Text = values;
         }
+
+        private void InnerFlyoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            MyFlyout.Hide();
+        }
+
+        private string[] selectionItems = new String[] { "hi", "hello", "hep", "Hella", "help" };
+        private void MyAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            var autoSuggestBox = (AutoSuggestBox)sender;
+            var filtered = selectionItems.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
+            autoSuggestBox.ItemsSource = filtered;
+        }
     }
 }
