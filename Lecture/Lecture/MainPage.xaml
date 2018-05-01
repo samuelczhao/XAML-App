@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20,20,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -18,12 +18,23 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
+        <TextBlock Grid.Row="0" Text="Time Picker" VerticalAlignment="Center" />
+        <TimePicker Grid.Row="0" Grid.Column="1" ClockIdentifier="12HourClock" Margin="20,0,0,20" />
+
+        <TextBlock Grid.Row="2" Text="Calendar Viewer" VerticalAlignment="Center" />
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="20,0,0,20" HorizontalAlignment="Left">
+            <CalendarView Name="MyCalendarView" SelectionMode="Multiple" SelectedDatesChanged="MyCalendarView_SelectedDatesChanged" />
+            <TextBlock Name="CalendarViewResultTextBlock" />
+        </StackPanel>
+
+        <!--
         <StackPanel Grid.Row="0" Margin="20,10,0,10" Orientation="Horizontal">
             <CheckBox Name="MyCheckBox" Content="Agree?" Tapped="MyCheckBox_Tapped" />
             <TextBlock Name="CheckBoxResultTextBlock" />
@@ -97,7 +108,7 @@
             <Button Content="Click me" Click="Button_Click" />
         </StackPanel>
 
-        <!--
+
         <Grid.RowDefinitions>
             <RowDefinition Height= "Auto" />
             <RowDefinition Height="*" />

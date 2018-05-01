@@ -121,5 +121,12 @@ namespace Lecture
                 ToggleButtonResultTextBlock.Text = "Null";
             }
         }
+
+        private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        {
+            var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
+            var values = string.Join(", ", selectedDates);
+            CalendarViewResultTextBox.Text = values;
+        }
     }
 }
