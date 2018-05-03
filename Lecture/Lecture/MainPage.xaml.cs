@@ -25,121 +25,121 @@ namespace Lecture
         public MainPage()
         {
             this.InitializeComponent();
-            InnerFrame.Navigate(typeof(Page1));
+            //InnerFrame.Navigate(typeof(Page1));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        //}
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            InnerFrame.Navigate(typeof(Page1));
-        }
+        //private void HomeButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    InnerFrame.Navigate(typeof(Page1));
+        //}
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            InnerFrame.GoBack();
-        }
+        //private void BackButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    InnerFrame.GoBack();
+        //}
 
-        private void ForwardButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (InnerFrame.CanGoForward)
-            {
-                InnerFrame.GoForward();
-            }
-        }
+        //private void ForwardButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (InnerFrame.CanGoForward)
+        //    {
+        //        InnerFrame.GoForward();
+        //    }
+        //}
 
-        private void MyCheckBox_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            if (MyCheckBox.IsChecked.Value)
-            {
-                CheckBoxResultTextBlock.Text = "Yes";
-            }
-            else
-            {
-                CheckBoxResultTextBlock.Text = "No";
-            }
-        }
+        //private void MyCheckBox_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    if (MyCheckBox.IsChecked.Value)
+        //    {
+        //        CheckBoxResultTextBlock.Text = "Yes";
+        //    }
+        //    else
+        //    {
+        //        CheckBoxResultTextBlock.Text = "No";
+        //    }
+        //}
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            if (YesRadioButton.IsChecked.Value)
-            {
-                RadioButtonTextBlock.Text = "Yes";
-            }
-            else
-            {
-                RadioButtonTextBlock.Text = "No";
-            }
-        }
+        //private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    if (YesRadioButton.IsChecked.Value)
+        //    {
+        //        RadioButtonTextBlock.Text = "Yes";
+        //    }
+        //    else
+        //    {
+        //        RadioButtonTextBlock.Text = "No";
+        //    }
+        //}
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (ComboBoxResultTextBox != null)
-            {
-                ComboBox combo = (ComboBox)sender;
-                ComboBoxItem item = (ComboBoxItem)combo.SelectedItem;
+        //private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    if (ComboBoxResultTextBox != null)
+        //    {
+        //        ComboBox combo = (ComboBox)sender;
+        //        ComboBoxItem item = (ComboBoxItem)combo.SelectedItem;
 
-                ComboBoxResultTextBox.Text = item.Content.ToString();
-            }
-        }
+        //        ComboBoxResultTextBox.Text = item.Content.ToString();
+        //    }
+        //}
 
-        private void Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string itemsStr = "";
+        //private void Listbox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    string itemsStr = "";
 
-            foreach (object item in MyListBox.Items)
-            {
-                ListBoxItem listboxitem = (ListBoxItem)item;
+        //    foreach (object item in MyListBox.Items)
+        //    {
+        //        ListBoxItem listboxitem = (ListBoxItem)item;
 
-                if (listboxitem.IsSelected)
-                {
-                    itemsStr += listboxitem.Content.ToString() + " ";
-                }
+        //        if (listboxitem.IsSelected)
+        //        {
+        //            itemsStr += listboxitem.Content.ToString() + " ";
+        //        }
 
-                ListBoxResultTextBlock.Text = itemsStr;
-            }
-        }
+        //        ListBoxResultTextBlock.Text = itemsStr;
+        //    }
+        //}
 
-        private void MyToggleButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (MyToggleButton.IsChecked.HasValue)
-            {
-                if (MyToggleButton.IsChecked.Value == true)
-                {
-                    ToggleButtonResultTextBlock.Text = "True";
-                }
-                else
-                {
-                    ToggleButtonResultTextBlock.Text = "False";
-                }
-            }
-            else
-            {
-                ToggleButtonResultTextBlock.Text = "Null";
-            }
-        }
+        //private void MyToggleButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (MyToggleButton.IsChecked.HasValue)
+        //    {
+        //        if (MyToggleButton.IsChecked.Value == true)
+        //        {
+        //            ToggleButtonResultTextBlock.Text = "True";
+        //        }
+        //        else
+        //        {
+        //            ToggleButtonResultTextBlock.Text = "False";
+        //        }
+        //    }
+        //    else
+        //    {
+        //        ToggleButtonResultTextBlock.Text = "Null";
+        //    }
+        //}
 
-        private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
-        {
-            var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
-            var values = string.Join(", ", selectedDates);
-            CalendarViewResultTextBox.Text = values;
-        }
+        //private void MyCalendarView_SelectedDatesChanged(CalendarView sender, CalendarViewSelectedDatesChangedEventArgs args)
+        //{
+        //    var selectedDates = sender.SelectedDates.Select(p => p.Date.Month.ToString() + "/" + p.Date.Day.ToString()).ToArray();
+        //    var values = string.Join(", ", selectedDates);
+        //    CalendarViewResultTextBox.Text = values;
+        //}
 
-        private void InnerFlyoutButton_Click(object sender, RoutedEventArgs e)
-        {
-            MyFlyout.Hide();
-        }
+        //private void InnerFlyoutButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    MyFlyout.Hide();
+        //}
 
-        private string[] selectionItems = new String[] { "hi", "hello", "hep", "Hella", "help" };
-        private void MyAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
-        {
-            var autoSuggestBox = (AutoSuggestBox)sender;
-            var filtered = selectionItems.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
-            autoSuggestBox.ItemsSource = filtered;
-        }
+        //private string[] selectionItems = new String[] { "hi", "hello", "hep", "Hella", "help" };
+        //private void MyAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        //{
+        //    var autoSuggestBox = (AutoSuggestBox)sender;
+        //    var filtered = selectionItems.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
+        //    autoSuggestBox.ItemsSource = filtered;
+        //}
     }
 }

@@ -9,6 +9,20 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20,20,0,0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Image Source="Assets/picture.png" Height="3000" Stretch="None" />
+        </ScrollViewer>
+
+
+        <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -71,13 +85,6 @@
         <TextBlock Grid.Row="7" Text="ProgressBar" VerticalAlignment="Center" />
         <Slider Name="MyProgressBar" Margin="20,0,0,20" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Maximum="100" Minimum="0" Width="200" />
 
-
-
-
-
-
-
-        <!--
         <StackPanel Grid.Row="0" Margin="20,10,0,10" Orientation="Horizontal">
             <CheckBox Name="MyCheckBox" Content="Agree?" Tapped="MyCheckBox_Tapped" />
             <TextBlock Name="CheckBoxResultTextBlock" />

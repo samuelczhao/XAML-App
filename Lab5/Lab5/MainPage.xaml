@@ -8,6 +8,37 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+        
+            <Button Name="DonutButton" Grid.Column="0" Click="DonutButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18" />
+            <Button Name="CoffeeButton" Grid.Column="1" Click="CoffeeButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18"/>
+            <Button Name="ScheduleButton" Grid.Column="2" Click="ScheduleButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18"/>
+            <Button Name="CompleteButton" Grid.Column="3" Click="CompleteButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18"/>
+            
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image Source="Assets/Generic.jpg" Grid.Column="1" Grid.Row="1" Stretch="UniformToFill"/>
+
+            <Frame Name="InnerFrame" Grid.Column="0" Grid.Row="1" />
+        </Grid>
 
     </Grid>
 </Page>
