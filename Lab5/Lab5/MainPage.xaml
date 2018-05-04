@@ -18,12 +18,32 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
             </Grid.RowDefinitions>
-        
-            <Button Name="DonutButton" Grid.Column="0" Click="DonutButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18" />
-            <Button Name="CoffeeButton" Grid.Column="1" Click="CoffeeButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18"/>
-            <Button Name="ScheduleButton" Grid.Column="2" Click="ScheduleButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18"/>
-            <Button Name="CompleteButton" Grid.Column="3" Click="CompleteButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18"/>
-            
+
+            <Button Name="DonutButton" Grid.Column="0" Click="DonutButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Assets/Donut.png" Height="25"/>
+                    <TextBlock Text="Donuts"/>
+                </StackPanel>
+            </Button>
+            <Button Name="CoffeeButton" Grid.Column="1" Click="CoffeeButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Assets/Coffee.png" Height="25"/>
+                    <TextBlock Text="Coffee"/>
+                </StackPanel>
+            </Button>
+            <Button Name="ScheduleButton" Grid.Column="2" Click="ScheduleButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Assets/Schedule.png" Height="25"/>
+                    <TextBlock Text="Schedule"/>
+                </StackPanel>
+            </Button>
+            <Button Name="CompleteButton" Grid.Column="3" Click="CompleteButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black" Foreground="White" FontSize="18">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Assets/Complete.png" Height="25"/>
+                    <TextBlock Text="Complete"/>
+                </StackPanel>
+            </Button>
+
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
