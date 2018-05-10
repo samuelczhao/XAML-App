@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,10 +23,23 @@ namespace Lecture
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public ObservableCollection<Book> Books;
+
         public MainPage()
         {
             this.InitializeComponent();
-            //InnerFrame.Navigate(typeof(Page1));
+            Books = BookManager.GetBooks();
+        }
+
+        public void GridView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var book = (Book)e.ClickedItem;
+            ResultTextBox.Text = "You selected " + book.Title;
+        }
+
+        private void AddPictureButton_ItemClick(object sender, RoutedEventArgs e)
+        {
+            Books.Add(new Book { BookId = 4, Title = "gamma", Author = "d", CoverImage = "Assets/4.jpg" });
         }
 
         //private void Button_Click(object sender, RoutedEventArgs e)
