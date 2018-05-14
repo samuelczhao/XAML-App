@@ -154,6 +154,7 @@ namespace Lecture
         //    var autoSuggestBox = (AutoSuggestBox)sender;
         //    var filtered = selectionItems.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
         //    autoSuggestBox.ItemsSource = filtered;
+        //
         //}
     }
 }
