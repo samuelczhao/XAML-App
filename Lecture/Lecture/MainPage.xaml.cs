@@ -25,6 +25,7 @@ namespace Lecture
     {
         public ObservableCollection<Book> Books;
 
+        // f
         public MainPage()
         {
             this.InitializeComponent();
