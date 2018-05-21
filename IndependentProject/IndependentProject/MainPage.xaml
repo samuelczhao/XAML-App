@@ -8,6 +8,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!--5/17 commit--> 
+        <!--5/17 commit-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="*" />
+            <RowDefinition Height ="500" />
+            <RowDefinition Height ="*" />
+        </Grid.RowDefinitions>
     </Grid>
 </Page>
