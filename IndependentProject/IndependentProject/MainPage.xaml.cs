@@ -26,5 +26,31 @@ namespace IndependentProject
         {
             this.InitializeComponent();
         }
+        // checks if files exist or should I just save everything to one file
+        private async void LoginButton_ItemClickAsync(object sender, RoutedEventArgs e)
+        {
+            string userpass = UsernameTextbox.Text + PasswordTextbox.Text;
+
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile storage = await storageFolder.GetFileAsync(userpass + ".txt");
+            string text = await Windows.Storage.FileIO.ReadTextAsync(storage);
+
+            if (text.Contains(userpass))
+            {
+
+            }
+        }
+
+        private void MakeNewAccount_ItemClick(object sender, RoutedEventArgs e)
+        {
+            string userpass = UsernameTextbox.Text + PasswordTextbox.Text;
+
+            if (true)
+            {
+
+            }
+
+
+        }
     }
 }
