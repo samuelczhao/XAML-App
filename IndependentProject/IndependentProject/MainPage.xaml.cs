@@ -22,6 +22,9 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private string username;
+        private string password;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,13 +35,21 @@ namespace IndependentProject
             string userpass = UsernameTextbox.Text + PasswordTextbox.Text;
 
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile storage = await storageFolder.GetFileAsync(userpass + ".txt");
-            string text = await Windows.Storage.FileIO.ReadTextAsync(storage);
-
-            if (text.Contains(userpass))
+            try
             {
-
+                Windows.Storage.StorageFile storage = await storageFolder.GetFileAsync(userpass + ".txt");
+                username = UsernameTextbox.Text;
+                password = PasswordTextbox.Text;
+                string text = await Windows.Storage.FileIO.ReadTextAsync(storage);
+                Frame.Navigate(typeof(HomePage));
             }
+            catch
+            {
+                // Clear the textboxes if the password is incorrect.
+                UsernameTextbox.Text = String.Empty;
+                PasswordTextbox.Text = String.Empty;
+            }
+            
         }
 
         private void MakeNewAccount_ItemClick(object sender, RoutedEventArgs e)
