@@ -43,8 +43,10 @@
             <TextBlock Text="Password: " FontSize="48" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,0"/>
             <TextBox Name = "UsernameTextbox" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Height="50" Margin="20,0,0,0" />
             <TextBox Name = "PasswordTextbox" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Height="50" Margin="20,0,0,0" />
-            <Button Content="Login" FontSize="40" Grid.Column="0" Grid.Row="2" Name="LoginButton" Click="LoginButton_ItemClick" HorizontalAlignment="Right" Margin="0,0,20,0" />
-            <Button Content="Create Account" FontSize="40" Grid.Column="1" Grid.Row="2" Name="MakeAccountButton" Click="MakeNewAccount_ItemClick" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+            <Button Content="Login" FontSize="40" Grid.Column="0" Grid.Row="2" Name="LoginButton" Click="LoginButton_ItemClickAsync" HorizontalAlignment="Right" Margin="0,0,20,0" />
+            <Button Content="Create Account" FontSize="40" Grid.Column="1" Grid.Row="2" Name="MakeAccountButton" Click="MakeNewAccount_ItemClickAsync" HorizontalAlignment="Left" Margin="20,0,0,0"/>
         </Grid>
+        
+        <TextBlock Name="ErrorBox" Text="" Grid.Row="2" Grid.Column="1" FontSize="40" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

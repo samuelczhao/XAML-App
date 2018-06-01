@@ -22,15 +22,15 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private string username;
-        private string password;
+        public string username;
+        public string password;
 
         public MainPage()
         {
             this.InitializeComponent();
         }
         // checks if files exist or should I just save everything to one file
-        private async void LoginButton_ItemClickAsync(object sender, RoutedEventArgs e)
+        public async void LoginButton_ItemClickAsync(object sender, RoutedEventArgs e)
         {
             string userpass = UsernameTextbox.Text + PasswordTextbox.Text;
 
@@ -46,22 +46,30 @@ namespace IndependentProject
             catch
             {
                 // Clear the textboxes if the password is incorrect.
-                UsernameTextbox.Text = String.Empty;
-                PasswordTextbox.Text = String.Empty;
+                ErrorBox.Text = "Login failed. Username or password is incorrect.";
             }
-            
+
+            UsernameTextbox.Text = String.Empty;
+            PasswordTextbox.Text = String.Empty;
         }
 
-        private void MakeNewAccount_ItemClick(object sender, RoutedEventArgs e)
+        public async void MakeNewAccount_ItemClickAsync(object sender, RoutedEventArgs e)
         {
             string userpass = UsernameTextbox.Text + PasswordTextbox.Text;
 
-            if (true)
+            try
             {
-
+                Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync(userpass + ".txt", Windows.Storage.CreationCollisionOption.FailIfExists);
+                ErrorBox.Text = "Account successfully made. Try logging in.";
+            }
+            catch
+            {
+                ErrorBox.Text = "Account username already exists.";
             }
 
-
+            UsernameTextbox.Text = String.Empty;
+            PasswordTextbox.Text = String.Empty;
         }
     }
 }

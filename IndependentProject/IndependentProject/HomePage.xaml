@@ -20,7 +20,17 @@
         
         
         <TextBlock Text= "Welcome User" FontSize="40" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0"/>
-        <!--<Button Content= "Logout" FontSize="40" Grid.Column="1" Grid.Row="0" Name="LogoutButton" Click="LogoutButton_ItemClick" HorizontalAlignment="Right" Margin="0,0,50,0" />
-        -->    
+        <Button Content= "Logout" FontSize="40" Grid.Column="1" Grid.Row="0" Name="LogoutButton" Click="LogoutButton_ItemClickAsync" HorizontalAlignment="Right" Margin="0,0,50,0" />
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="*" />
+                <RowDefinition Height ="2*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text= "Weather" FontSize="40" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+            <TextBlock Text= "Current Plant List" FontSize="40" Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+        </Grid>
     </Grid>
 </Page>
