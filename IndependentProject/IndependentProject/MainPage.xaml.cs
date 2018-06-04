@@ -22,8 +22,8 @@ namespace IndependentProject
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public string username;
-        public string password;
+        public static string username;
+        public static string password;
 
         public MainPage()
         {

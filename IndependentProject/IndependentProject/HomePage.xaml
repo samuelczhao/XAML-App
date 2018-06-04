@@ -17,8 +17,8 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
-        
+
+
         <TextBlock Text= "Welcome User" FontSize="40" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0"/>
         <Button Content= "Logout" FontSize="40" Grid.Column="1" Grid.Row="0" Name="LogoutButton" Click="LogoutButton_ItemClickAsync" HorizontalAlignment="Right" Margin="0,0,50,0" />
 
@@ -30,7 +30,32 @@
 
             <TextBlock Text= "Weather" FontSize="40" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
 
-            <TextBlock Text= "Current Plant List" FontSize="40" Grid.Row="1" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="*" />
+                    <RowDefinition Height ="7*" />
+                    <RowDefinition Height ="*" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Text= "Current Plant List" FontSize="40" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    
+                </ScrollViewer>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width ="*" />
+                        <ColumnDefinition Width ="2*" />
+                        <ColumnDefinition Width ="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text= "Add Plants : " FontSize="30" Grid.Column="0" Margin="20,0,0,0" VerticalAlignment="Center" />
+                    <AutoSuggestBox Name="SearchBar" Grid.Column="1" VerticalAlignment="Center" FontSize="30" Height="50"/>
+                    <Button Content= "Add" FontSize="30" Grid.Column="2" Name="AddPlantSearchButton" Click="AddPlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

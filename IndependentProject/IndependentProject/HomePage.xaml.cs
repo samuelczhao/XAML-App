@@ -31,5 +31,11 @@ namespace IndependentProject
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+        private async void AddPlantSearchButton_ItemClickAsync(object sender, RoutedEventArgs e)
+        {
+            string userpass = MainPage.username + MainPage.password;
+            string text = await Windows.Storage.FileIO.ReadTextAsync(userpass);
+        }
     }
 }
