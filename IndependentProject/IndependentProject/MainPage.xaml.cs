@@ -51,6 +51,7 @@ namespace IndependentProject
 
             UsernameTextbox.Text = String.Empty;
             PasswordTextbox.Text = String.Empty;
+
         }
 
         public async void MakeNewAccount_ItemClickAsync(object sender, RoutedEventArgs e)

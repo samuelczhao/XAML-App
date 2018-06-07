@@ -41,7 +41,7 @@
                 
                 <TextBlock Text= "Current Plant List" FontSize="40" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                    
+                    <TextBlock Name="CurrentPlantContent" Text= "" FontSize="20" HorizontalAlignment="Center" Margin="0,20,0,0"/>
                 </ScrollViewer>
 
                 <Grid Grid.Row="2">
@@ -49,11 +49,13 @@
                         <ColumnDefinition Width ="*" />
                         <ColumnDefinition Width ="2*" />
                         <ColumnDefinition Width ="*" />
+                        <ColumnDefinition Width ="*" />
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text= "Add Plants : " FontSize="30" Grid.Column="0" Margin="20,0,0,0" VerticalAlignment="Center" />
                     <AutoSuggestBox Name="SearchBar" Grid.Column="1" VerticalAlignment="Center" FontSize="30" Height="50"/>
                     <Button Content= "Add" FontSize="30" Grid.Column="2" Name="AddPlantSearchButton" Click="AddPlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Margin="20,0,0,0"/>
+                    <Button Content= "Remove" FontSize="30" Grid.Column="3" Name="RemovePlantSearchButton" Click="RemovePlantSearchButton_ItemClickAsync" VerticalAlignment="Center"/>
                 </Grid>
             </Grid>
         </Grid>
