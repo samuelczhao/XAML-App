@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <!--5/17 commit-->
-
+        <!--6/8 commit Does this work!?!?!?!!??!!? first commit from laptop. Spent class today making VS work on school laptop-->
         <Grid.RowDefinitions>
             <RowDefinition Height ="*" />
             <RowDefinition Height ="1.5*" />
