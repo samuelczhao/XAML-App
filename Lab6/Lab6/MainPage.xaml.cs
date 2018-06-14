@@ -39,13 +39,59 @@ namespace Lab6
             ViewModel.Temperature = "Loading...";
             ViewModel.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif";
 
-            await UpdateWeather();
+            await UpdateWeather("/q/CA/San_Francisco");
         }
 
-        private async Task UpdateWeather()
+        private async Task UpdateWeather(string cityLink)
         {
             WeatherRetriever weatherRetriever = new WeatherRetriever();
-            ConditionsRootObject conditionsRoot = await weatherRetriever.GetConditions();
+            ConditionsRootObject conditionsRoot = await weatherRetriever.GetConditions(cityLink);
+
+            ViewModel.Description = conditionsRoot.Current_observation.Weather;
+            ViewModel.LocationName = conditionsRoot.Current_observation.Display_location.Full;
+            ViewModel.Temperature = conditionsRoot.Current_observation.Temperature_string;
+            ViewModel.ImageUrl = conditionsRoot.Current_observation.Icon_url;
+
+        }
+
+        private async void LocationAutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+        {
+            if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+            {
+                await SearchForCities(LocationAutoSuggestBox.Text);
+            }
+        }
+
+        private async Task SearchForCities(string text)
+        {
+            WeatherRetriever weatherRetriever = new Lab6.WeatherRetriever();
+            AutoCompleteRootObject AutoCompleteRoot = await weatherRetriever.GetSuggestions(text);
+
+            LocationAutoSuggestBox.ItemsSource = AutoCompleteRoot.RESULTS;
+        }
+
+        private async void LocationAutoSuggestBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+        {
+            if (args.ChosenSuggestion != null)
+            {
+                await ChangeCity(args.ChosenSuggestion);
+            }
+            else
+            {
+                await SearchForCities(args.QueryText);
+            }
+        }
+
+        private async Task ChangeCity(object selectedCity)
+        {
+            string selectedCityLink = ((RESULT) selectedCity).l;
+            await UpdateWeather(selectedCityLink);
+        }
+
+        private async void LocationAutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+        {
+            string selectedCityLink = ((RESULT)args.SelectedItem).l;
+            await UpdateWeather(selectedCityLink);
         }
     }
 }

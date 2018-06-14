@@ -83,17 +83,17 @@ namespace Lab6.Models
         public string Relative_humidity { get; set; }
         public string Wind_string { get; set; }
         public string Wind_dir { get; set; }
-        public int Wind_degrees { get; set; }
-        public int Wind_mph { get; set; }
+        public double Wind_degrees { get; set; }
+        public double Wind_mph { get; set; }
         public string Wind_gust_mph { get; set; }
-        public int Wind_kph { get; set; }
+        public double Wind_kph { get; set; }
         public string Wind_gust_kph { get; set; }
         public string Pressure_mb { get; set; }
         public string Pressure_in { get; set; }
         public string Pressure_trend { get; set; }
         public string Dewpoint_string { get; set; }
-        public int Dewpoint_f { get; set; }
-        public int Dewpoint_c { get; set; }
+        public double Dewpoint_f { get; set; }
+        public double Dewpoint_c { get; set; }
         public string Heat_index_string { get; set; }
         public string Heat_index_f { get; set; }
         public string Heat_index_c { get; set; }

@@ -5,10 +5,15 @@
     xmlns:local="using:Lab6"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data ="using:Lab6.ViewModels"
     mc:Ignorable="d">
 
     <StackPanel Background="LightBlue">
         <StackPanel VerticalAlignment="Center">
+            <AutoSuggestBox Name="LocationAutoSuggestBox" HorizontalAlignment="Center" QueryIcon="Find" PlaceholderText="Enter Location..." Width="300" TextMemberPath="name" DisplayMemberPath="name" 
+                            TextChanged="LocationAutoSuggestBox_TextChanged" QuerySubmitted="LocationAutoSuggestBox_QuerySubmitted" SuggestionChosen="LocationAutoSuggestBox_SuggestionChosen" />
+            
+
             <Image Name="ResultImage" Width="200" Height="200" HorizontalAlignment="Center">
                 <Image.Source>
                     <BitmapImage UriSource="{x:Bind ViewModel.ImageUrl, Mode=OneWay}" />

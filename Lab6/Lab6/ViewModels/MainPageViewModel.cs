@@ -1,4 +1,5 @@
 ﻿using PropertyChanged;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace Lab6.ViewModels
@@ -13,5 +14,7 @@ namespace Lab6.ViewModels
         public string Temperature { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
+
+        public ObservableCollection<ForecastDayViewModel> Forecast { get; } = new ObservableCollection<ForecastDayViewModel>();
     }
 }
