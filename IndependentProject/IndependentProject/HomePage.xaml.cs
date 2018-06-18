@@ -108,9 +108,6 @@ namespace IndependentProject
             await UpdateWeather(selectedCityLink);
         }
 
-
-
-
         private void LogoutButton_ItemClickAsync(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
@@ -123,21 +120,24 @@ namespace IndependentProject
             Windows.Storage.StorageFile storage = await storageFolder.GetFileAsync(userpass + ".txt");
             string text = await Windows.Storage.FileIO.ReadTextAsync(storage);
 
+            // Check if the plant is already in the user's list
             if (text.Contains(SearchBar.Text))
             {
                 ErrorBox.Text = "Entry already exists";
                 return;
             }
 
+            // check if the entry is a plant. The code here is ugly. 
             for (int i = 0; i < plants.Length; i++)
             {
-                if (plants[i].Equals(PlantAutoSuggestBox.Text.ToLower()))
+                if (plants[i] == (SearchBar.Text))
                 {
                     await Windows.Storage.FileIO.WriteTextAsync(storage, text + "\n" + SearchBar.Text);
                     CurrentPlantContent.Text = await Windows.Storage.FileIO.ReadTextAsync(storage);
                     return;
                 }
             }
+
             ErrorBox.Text = "Entry is not a viable plant";
         }
 
@@ -159,7 +159,7 @@ namespace IndependentProject
 
             if (text.Contains(SearchBar.Text))
             {
-                text = text.Replace(SearchBar.Text + "\n", "");
+                text = text.Replace("\n" + SearchBar.Text, "");
                 await Windows.Storage.FileIO.WriteTextAsync(storage, text);
             }
 
@@ -179,8 +179,8 @@ namespace IndependentProject
         {
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
-                var autoSuggestBox = (AutoSuggestBox)sender;
-                var filtered = plants.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
+                AutoSuggestBox autoSuggestBox = (AutoSuggestBox)sender;
+                string[] filtered = plants.Where(p => p.StartsWith(autoSuggestBox.Text)).ToArray();
                 autoSuggestBox.ItemsSource = filtered;
             }
         }
@@ -195,7 +195,5 @@ namespace IndependentProject
                 PlantView.Navigate(target);
             }
         }
-
-
     }
 }

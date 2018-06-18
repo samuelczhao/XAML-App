@@ -13,6 +13,7 @@ namespace IndependentProject.ViewModels
         public string Description { get; set; }
         public string ImageUrl { get; set; }
 
+        // I added this in to check if the temp was below freezing. (aka frost point)
         public double temp { get; set; }
     }
 }

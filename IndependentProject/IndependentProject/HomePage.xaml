@@ -9,7 +9,7 @@
 
     <Grid Background="BlanchedAlmond">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
@@ -28,18 +28,18 @@
         <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
                 <RowDefinition Height ="10*" />
-                <RowDefinition Height ="*" />
+                <RowDefinition Height ="70" />
             </Grid.RowDefinitions>
 
-            <WebView Name="PlantView" Grid.Column="0"/>
-            
+            <WebView Name="PlantView"  Grid.Column="0"/>
+
             <Grid Grid.Row="1" Background="LightSkyBlue">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <AutoSuggestBox Name="PlantAutoSuggestBox" DisplayMemberPath="name" TextMemberPath="name" TextChanged="PlantAutoSuggestBox_TextChanged" VerticalAlignment="Center" Height="50" Width="Auto" Grid.Row="1" HorizontalAlignment="Stretch" Margin="20,0,0,0"/>
+                <AutoSuggestBox Name="PlantAutoSuggestBox" PlaceholderText="Search for a plant..."  TextChanged="PlantAutoSuggestBox_TextChanged" VerticalAlignment="Center" Height="50" Width="Auto" Grid.Row="1" HorizontalAlignment="Stretch" Margin="20,0,0,0"/>
                 <Button Name="SearchButton" Content="Search" Click="SearchButton_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0"/>
             </Grid>
         </Grid>
@@ -80,7 +80,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height ="auto" />
                     <RowDefinition Height ="6*" />
-                    <RowDefinition Height ="1.15*" />
+                    <RowDefinition Height ="70" />
                 </Grid.RowDefinitions>
                 
                 <TextBlock Text= "Current Plant List" FontSize="36" Grid.Row="0" HorizontalAlignment="Center"/>
@@ -96,7 +96,7 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <AutoSuggestBox Name="SearchBar" DisplayMemberPath="name" TextMemberPath="name" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="30" Height="50" TextChanged="PlantAutoSuggestBox_TextChanged" Margin="20,0,0,0"/>
+                    <AutoSuggestBox Name="SearchBar" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="30" Height="50" TextChanged="PlantAutoSuggestBox_TextChanged" Margin="20,0,0,0"/>
                     <Button Content= "Add" FontSize="30" Grid.Column="1" Name="AddPlantSearchButton" Click="AddPlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Width="auto"/>
                     <Button Content= "Remove" FontSize="30" Grid.Column="2" Name="RemovePlantSearchButton" Click="RemovePlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Width="auto" Margin="0,0,20,0"/>
                 </Grid>

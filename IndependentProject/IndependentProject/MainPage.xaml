@@ -48,6 +48,7 @@
             <Button Content="Login" FontSize="40" Grid.Column="0" Grid.Row="2" Name="LoginButton" Click="LoginButton_ItemClickAsync" HorizontalAlignment="Right" Margin="0,0,20,0" />
             <Button Content="Create Account" FontSize="40" Grid.Column="1" Grid.Row="2" Name="MakeAccountButton" Click="MakeNewAccount_ItemClickAsync" HorizontalAlignment="Left" Margin="20,0,0,0"/>
         </Grid>
+
         
         <TextBlock Name="ErrorBox" Text="" Grid.Row="2" Grid.Column="1" FontSize="40" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
