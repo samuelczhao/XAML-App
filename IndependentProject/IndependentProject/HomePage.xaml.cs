@@ -56,6 +56,7 @@ namespace IndependentProject
             ViewModel.ImageUrl = conditionsRoot.Current_observation.Icon_url;
             ViewModel.temp = conditionsRoot.Current_observation.Temp_f;
 
+            // These checks are to notify the user if their plants are in danger of anything
             if (ViewModel.temp < 32)
             {
                 WarningTextBlock.Text = "Warning : There is frost outside";
@@ -115,28 +116,32 @@ namespace IndependentProject
             Frame.Navigate(typeof(MainPage));
         }
 
+        // This method adds plants to the plantlist. It prevents duplicates and also only allows plants.
         private async void AddPlantSearchButton_ItemClickAsync(object sender, RoutedEventArgs e)
         {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
             Windows.Storage.StorageFile storage = await storageFolder.GetFileAsync(userpass + ".txt");
             string text = await Windows.Storage.FileIO.ReadTextAsync(storage);
 
-
-            if (!plants.Contains(PlantAutoSuggestBox.Text.ToLower()))
-            {
-                ErrorBox.Text = "Entry is not a viable plant";
-            }
-            else if (text.Contains(SearchBar.Text))
+            if (text.Contains(SearchBar.Text))
             {
                 ErrorBox.Text = "Entry already exists";
-            } 
-            else
-            {
-                await Windows.Storage.FileIO.WriteTextAsync(storage, text + "\n" + SearchBar.Text);
+                return;
             }
 
-            CurrentPlantContent.Text = await Windows.Storage.FileIO.ReadTextAsync(storage);
+            for (int i = 0; i < plants.Length; i++)
+            {
+                if (plants[i].Equals(PlantAutoSuggestBox.Text.ToLower()))
+                {
+                    await Windows.Storage.FileIO.WriteTextAsync(storage, text + "\n" + SearchBar.Text);
+                    CurrentPlantContent.Text = await Windows.Storage.FileIO.ReadTextAsync(storage);
+                    return;
+                }
+            }
+            ErrorBox.Text = "Entry is not a viable plant";
         }
+
+        // This method sets the plant list up when the user first logs on
         private async void Setup()
         {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
@@ -145,7 +150,7 @@ namespace IndependentProject
             CurrentPlantContent.Text = await Windows.Storage.FileIO.ReadTextAsync(storage);
         }
 
-        // this shit doesnt work rn focus line 68 rip
+        // Implementation for the remove from plant list button
         private async void RemovePlantSearchButton_ItemClickAsync(object sender, RoutedEventArgs e)
         {
             Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
@@ -154,15 +159,15 @@ namespace IndependentProject
 
             if (text.Contains(SearchBar.Text))
             {
-                text = text.Remove(text.IndexOf(SearchBar.Text) - 1, text.IndexOf(SearchBar.Text) + SearchBar.Text.Length - 2);
+                text = text.Replace(SearchBar.Text + "\n", "");
                 await Windows.Storage.FileIO.WriteTextAsync(storage, text);
             }
 
             CurrentPlantContent.Text = await Windows.Storage.FileIO.ReadTextAsync(storage);
         }
 
-
-        private string[] plants = new string[] {"chamomile","chervil","chicory","chives","cilantro",
+        // Hardcoded list of plants that my app supports
+        public string[] plants = new string[] {"chamomile","chervil","chicory","chives","cilantro",
             "dill","marjoram","spearmint","tarragon","thyme","artichoke","asparagus","beets",
             "carrot","celeriac","corn","eggplant","fennel","kohlrabi","mushroom","parsnip","potato",
             "pumpkin","rhubarb","rutabaga","apples","avocados","blackberry",
@@ -180,6 +185,7 @@ namespace IndependentProject
             }
         }
 
+        // This opens the wikipedia page for the plant
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             if(plants.Contains(PlantAutoSuggestBox.Text.ToLower()))
