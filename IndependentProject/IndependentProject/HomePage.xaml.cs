@@ -42,7 +42,7 @@ namespace IndependentProject
             ViewModel.Temperature = "Loading...";
             ViewModel.ImageUrl = "https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif";
 
-            await UpdateWeather("/q/CA/San_Francisco");
+            await UpdateWeather("/q/CA/Seattle");
         }
 
         private async Task UpdateWeather(string cityLink)
