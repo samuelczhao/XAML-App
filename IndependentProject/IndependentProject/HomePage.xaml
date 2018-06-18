@@ -7,55 +7,98 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="BlanchedAlmond">
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
 
         <TextBlock Text= "Welcome User" FontSize="40" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+        <TextBlock Name="ErrorBox" FontSize="30" Foreground="Red" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0"/>
         <Button Content= "Logout" FontSize="40" Grid.Column="1" Grid.Row="0" Name="LogoutButton" Click="LogoutButton_ItemClickAsync" HorizontalAlignment="Right" Margin="0,0,50,0" />
-
-        <Grid Grid.Row="1" Grid.Column="1">
+        
+        
+        
+        <Grid Grid.Row="1" Grid.Column="0" Background="Aquamarine">
             <Grid.RowDefinitions>
+                <RowDefinition Height ="10*" />
+                <RowDefinition Height ="*" />
+            </Grid.RowDefinitions>
+
+            <WebView Name="PlantView" Grid.Column="0"/>
+            
+            <Grid Grid.Row="1" Background="LightSkyBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <AutoSuggestBox Name="PlantAutoSuggestBox" DisplayMemberPath="name" TextMemberPath="name" TextChanged="PlantAutoSuggestBox_TextChanged" VerticalAlignment="Center" Height="50" Width="Auto" Grid.Row="1" HorizontalAlignment="Stretch" Margin="20,0,0,0"/>
+                <Button Name="SearchButton" Content="Search" Click="SearchButton_Click" FontSize="30" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+            </Grid>
+        </Grid>
+        
+        
+        
+        
+        <Grid Grid.Row="1" Grid.Column="1" Background="LightBlue">
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="Auto" />
                 <RowDefinition Height ="*" />
                 <RowDefinition Height ="2*" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text= "Weather" FontSize="40" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <TextBlock Text= "Weather" FontSize="36" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+
+            <StackPanel Background="LightBlue" Grid.Row="1">
+                <StackPanel VerticalAlignment="Center">
+                    <AutoSuggestBox Name="LocationAutoSuggestBox" HorizontalAlignment="Center" QueryIcon="Find" PlaceholderText="Enter Location..." Width="auto" TextMemberPath="name" DisplayMemberPath="name" 
+                            TextChanged="LocationAutoSuggestBox_TextChanged" QuerySubmitted="LocationAutoSuggestBox_QuerySubmitted" SuggestionChosen="LocationAutoSuggestBox_SuggestionChosen" />
 
 
+                    <Image Name="ResultImage" Width="50" Height="50" HorizontalAlignment="Center">
+                        <Image.Source>
+                            <BitmapImage UriSource="{x:Bind ViewModel.ImageUrl, Mode=OneWay}" />
+                        </Image.Source>
+                    </Image>
 
-            <Grid Grid.Row="1">
+                    <TextBlock Name="TemperatureTextBlock" Text="{x:Bind ViewModel.Temperature, Mode=OneWay}" FontSize="20" Foreground="White" HorizontalAlignment="Center" />
+                    <TextBlock Name="DescriptionTextBlock" Text="{x:Bind ViewModel.Description, Mode=OneWay}" FontSize="20" Foreground="White" HorizontalAlignment="Center" />
+                    <TextBlock Name="LocationTextBlock" Text="{x:Bind ViewModel.LocationName, Mode=OneWay}" FontSize="20" Foreground="White" HorizontalAlignment="Center" />
+                    <TextBlock Name="WarningTextBlock" FontSize="25" Foreground="Red" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+
+
+            <Grid Grid.Row="2" Background="LightGreen">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height ="*" />
-                    <RowDefinition Height ="7*" />
-                    <RowDefinition Height ="*" />
+                    <RowDefinition Height ="auto" />
+                    <RowDefinition Height ="6*" />
+                    <RowDefinition Height ="1.15*" />
                 </Grid.RowDefinitions>
                 
-                <TextBlock Text= "Current Plant List" FontSize="40" Grid.Row="0" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+                <TextBlock Text= "Current Plant List" FontSize="36" Grid.Row="0" HorizontalAlignment="Center"/>
                 <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                     <TextBlock Name="CurrentPlantContent" Text= "" FontSize="20" HorizontalAlignment="Center" Margin="0,20,0,0"/>
                 </ScrollViewer>
 
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="2" Background="LightSkyBlue">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width ="*" />
                         <ColumnDefinition Width ="2*" />
-                        <ColumnDefinition Width ="*" />
-                        <ColumnDefinition Width ="*" />
+                        <ColumnDefinition Width ="Auto" />
+                        <ColumnDefinition Width ="Auto" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Text= "Add Plants : " FontSize="30" Grid.Column="0" Margin="20,0,0,0" VerticalAlignment="Center" />
-                    <AutoSuggestBox Name="SearchBar" Grid.Column="1" VerticalAlignment="Center" FontSize="30" Height="50"/>
-                    <Button Content= "Add" FontSize="30" Grid.Column="2" Name="AddPlantSearchButton" Click="AddPlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Margin="20,0,0,0"/>
-                    <Button Content= "Remove" FontSize="30" Grid.Column="3" Name="RemovePlantSearchButton" Click="RemovePlantSearchButton_ItemClickAsync" VerticalAlignment="Center"/>
+
+                    <AutoSuggestBox Name="SearchBar" DisplayMemberPath="name" TextMemberPath="name" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="30" Height="50" TextChanged="PlantAutoSuggestBox_TextChanged" Margin="20,0,0,0"/>
+                    <Button Content= "Add" FontSize="30" Grid.Column="1" Name="AddPlantSearchButton" Click="AddPlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Width="auto"/>
+                    <Button Content= "Remove" FontSize="30" Grid.Column="2" Name="RemovePlantSearchButton" Click="RemovePlantSearchButton_ItemClickAsync" VerticalAlignment="Center" Width="auto" Margin="0,0,20,0"/>
                 </Grid>
             </Grid>
         </Grid>
