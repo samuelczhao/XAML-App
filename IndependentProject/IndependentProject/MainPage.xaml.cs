@@ -56,6 +56,13 @@ namespace IndependentProject
 
         public async void MakeNewAccount_ItemClickAsync(object sender, RoutedEventArgs e)
         {
+            // For the people that like looking for bugs
+            if (UsernameTextbox.Text == "" || PasswordTextbox.Text == "")
+            {
+                ErrorBox.Text = "Please try another username/password";
+                return;
+            }
+
             string userpass = UsernameTextbox.Text + PasswordTextbox.Text;
 
             try

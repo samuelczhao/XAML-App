@@ -188,12 +188,19 @@ namespace IndependentProject
         // This opens the wikipedia page for the plant
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
-            if(plants.Contains(PlantAutoSuggestBox.Text.ToLower()))
+            for (int i = 0; i < plants.Length; i++)
             {
-                string content = PlantAutoSuggestBox.Text;
-                Uri target = new Uri($"https://en.wikipedia.org/wiki/{content}?action=render");
-                PlantView.Navigate(target);
+                if (plants[i] == (PlantAutoSuggestBox.Text))
+                {
+                    string content = PlantAutoSuggestBox.Text;
+                    Uri target = new Uri($"https://en.wikipedia.org/wiki/{content}?action=render");
+                    PlantView.Navigate(target);
+                    return;
+                }
             }
+            
+            ErrorBox.Text = "Entry is not a viable plant";
+            
         }
     }
 }
