@@ -18,9 +18,15 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
-
-        <TextBlock Text= "Welcome User" FontSize="40" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0"/>
-        <TextBlock Name="ErrorBox" FontSize="30" Foreground="Red" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,30,0"/>
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text= "Welcome User" FontSize="40" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0"/>
+            <TextBlock Name="ErrorBox" FontSize="30" Foreground="Red" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,30,0"/>
+        </Grid>
         <Button Content= "Logout" FontSize="40" Grid.Column="1" Grid.Row="0" Name="LogoutButton" Click="LogoutButton_ItemClickAsync" HorizontalAlignment="Right" Margin="0,0,50,0" />
         
         

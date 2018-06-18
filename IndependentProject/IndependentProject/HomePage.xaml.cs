@@ -61,7 +61,7 @@ namespace IndependentProject
             {
                 WarningTextBlock.Text = "Warning : There is frost outside";
             }
-            if (!ViewModel.Description.Equals("rain") || ViewModel.Description.Equals("thunderstorm"))
+            if (!(ViewModel.Description.Equals("rain") || ViewModel.Description.Equals("thunderstorm")))
             {
                 WarningTextBlock.Text = "Warning : May need to water your garden";
             }
